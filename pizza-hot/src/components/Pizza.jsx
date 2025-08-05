@@ -11,7 +11,7 @@ export default function Pizza({ imgSrc, title, description, price }) {
           <h3 className="card-title">{title}</h3>
           <p className="card-text">{description}</p>
           <div className="item-price">
-            <b>{price}</b>
+            <b>{price} ₺</b>
             <button className="btn btn-sm btn-danger">Sepete Ekle</button>
           </div>
         </div>
