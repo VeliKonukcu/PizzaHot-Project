@@ -44,14 +44,6 @@ export default function Checkout() {
         },
       }),
     );
-
-    // fetch("http://localhost:3000/orders", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body:
-    // });
   }
 
   if (data && !error) {
