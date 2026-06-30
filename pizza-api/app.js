@@ -19,12 +19,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/pizzas", async (req, res) => {
+app.get("/api/pizzas", async (req, res) => {
   const pizzas = await fs.readFile("data/pizzas.json", "utf8");
   res.json(JSON.parse(pizzas));
 });
 
-app.post("/orders", async (req, res) => {
+app.post("/api/orders", async (req, res) => {
   const order = req.body.order;
 
   if (order === null || order.items === null || order.items.length === 0) {
