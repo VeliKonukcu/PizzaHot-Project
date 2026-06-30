@@ -7,8 +7,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+const allowedOrigin = process.env.FRONTEND_URL || "http://localhost:5173";
+
 const cors = require("cors");
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: allowedOrigin }));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -63,4 +65,4 @@ app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
 
-app.listen(3000);
+module.exports = app;

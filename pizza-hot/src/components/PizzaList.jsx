@@ -7,9 +7,9 @@ const config = {
 
 export default function PizzaList() {
   const { data, isLoading, error } = useFetch(
-    "http://localhost:3000/pizzas",
+    `${import.meta.env.VITE_API_URL}/pizzas`,
     config,
-    []
+    [],
   );
 
   if (isLoading) {
@@ -19,26 +19,6 @@ export default function PizzaList() {
   if (error) {
     return <div className="alert alert-danger">{error}</div>;
   }
-
-  // const [pizzaValues, setPizzaValues] = useState([]);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   async function fetchPizzas() {
-  //     try {
-  //       const response = await fetch("http://localhost:3000/pizzas");
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       const pizzas = await response.json();
-  //       setPizzaValues(pizzas);
-  //     } catch (error) {
-  //       setError(error.message);
-  //       console.error("Failed to fetch pizzas:", error);
-  //     }
-  //   }
-  //   fetchPizzas();
-  // }, []);
 
   return (
     <div className="pizza-list">

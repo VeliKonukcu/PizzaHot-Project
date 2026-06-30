@@ -16,8 +16,8 @@ export default function Checkout() {
   const { items, clearItems } = useContext(CartContext);
 
   const { data, isLoading, error, SendRequest } = useFetch(
-    "http://localhost:3000/orders",
-    config
+    `${import.meta.env.VITE_API_URL}/orders`,
+    config,
   );
 
   function handleClose() {
@@ -27,7 +27,7 @@ export default function Checkout() {
 
   const cartTotal = items.reduce(
     (total, item) => total + item.price * item.quantity,
-    0
+    0,
   );
 
   function handleSubmit(e) {
@@ -42,7 +42,7 @@ export default function Checkout() {
           items: items,
           customer: customerData,
         },
-      })
+      }),
     );
 
     // fetch("http://localhost:3000/orders", {

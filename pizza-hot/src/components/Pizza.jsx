@@ -10,7 +10,7 @@ export default function Pizza({ pizza }) {
     <div className="col">
       <div className="card item h-100">
         <img
-          src={`http://localhost:3000/images/${pizza.image}`}
+          src={`${import.meta.env.VITE_API_URL}/images/${pizza.image}`}
           alt={pizza.title}
           className="card-img-top p-2 p-md-3 border-bottom"
         />
