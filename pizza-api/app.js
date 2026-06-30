@@ -1,11 +1,10 @@
-const bodyParser = require("body-parser");
 const express = require("express");
 const fs = require("fs/promises");
 const cors = require("cors");
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(express.static("public"));
 
 app.use(cors({ origin: "http://localhost:5173" }));
